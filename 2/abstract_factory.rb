@@ -33,8 +33,7 @@ class Application
     button.render
   end
 end
- 
- 
+
 class ApplicationRunner
   def self.run
     Application.new(self.createOsSpecificFactory)
