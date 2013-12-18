@@ -55,6 +55,9 @@ class VisitorCounter < Visitor
   end
 
   def visit strategy
+
+    # strategy
+
     @count += 1
     @list << strategy.class.to_s
   end
@@ -79,8 +82,8 @@ comparatorReverse.accept(visitorCounter)
 
 p visitorCounter.count, visitorCounter.list
 
-visitorSorter = VisitorSorter.new
+# visitorSorter = VisitorSorter.new
 
-comparatorDiv3.accept(visitorSorter)
-comparatorDiv2.accept(visitorSorter)
-comparatorReverse.accept(visitorSorter)
+# comparatorDiv3.accept(visitorSorter)
+# comparatorDiv2.accept(visitorSorter)
+# comparatorReverse.accept(visitorSorter)

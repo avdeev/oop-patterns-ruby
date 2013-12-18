@@ -1,12 +1,23 @@
-class WinFactory
+class AbstractFactory
+  def create_button
+    raise NotImplementedError, 'Sorry, you have to override'
+  end
+end
+
+class WinFactory < AbstractFactory
   def create_button
     WinButton.new
   end
 end
  
-class LinFactory
+class LinFactory < AbstractFactory
   def create_button
     LinButton.new
+  end
+end
+
+class MacFactory < AbstractFactory
+  def create_menu
   end
 end
  
