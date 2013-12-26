@@ -35,7 +35,7 @@ class Sorter
         end
       end
     end
-    p array
+    # p array
   end
 end
 
@@ -59,7 +59,7 @@ class DecoratorCache
 
   def compare a, b
     if @cache[[a, b]]
-      @cache[[a,b]]
+      @cache[[a, b]]
     else
       @cache[[a, b]] = @component.compare a, b
       @cache[[a, b]]
@@ -68,6 +68,11 @@ class DecoratorCache
 end
 
 sorter = Sorter.new
-sorter.strategy = DecoratorCache.new StrategyReverse.new
+
+sorter.strategy = StrategyReverse.new
 sorter.sort()
+
+sorter.strategy = DecoratorCache.new sorter.strategy
+sorter.sort()
+
 p sorter.strategy.cache
