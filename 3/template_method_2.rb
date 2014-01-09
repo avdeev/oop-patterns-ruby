@@ -12,8 +12,8 @@ class Wall
   private
 
   def length
-    raise NotImplementedError, 'Sorry, you have to override length'
-    # 30
+    # raise NotImplementedError, 'Sorry, you have to override length'
+    30
   end
 end
 
