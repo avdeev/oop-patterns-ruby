@@ -15,3 +15,6 @@ class AddressService
     p "address set for: #{name}"
   end
 end
+
+order = Order.new
+order.set_name 'Alexey'

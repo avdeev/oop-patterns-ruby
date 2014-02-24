@@ -16,7 +16,7 @@ class ConnectPool
     @size = size
     @connections = []
     size.times do |i|
-      @connections << DatabaseConnect.new
+      @connections << Connect.new
     end
   end
   def get
@@ -32,6 +32,7 @@ end
 
 pool = ConnectPool.instance
 pool.set_size 4
+
 5.times do
   connection = pool.get
   if connection
