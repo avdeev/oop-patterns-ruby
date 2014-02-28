@@ -1,3 +1,4 @@
+# Flyweight
 class Car
   attr_accessor :number, :model
   def initialize number, model
@@ -9,7 +10,22 @@ class Car
   end
 end
 
+# Flyweight Factory
+class CarFactory
+  attr_accessor :cars
+  def initialize
+    @cars = {}
+  end
+  def get_car number, model
+    @cars[model] ||= Car.new(number, model)
+    @cars[model].number = number
+    @cars[model]
+  end
+end
+
+factory = CarFactory.new
+
 5.times do |i|
-  car = Car.new(i, i % 2 == 0 ? 'kalina' : 'granta')
+  car = factory.get_car(i, i % 2 == 0 ? 'kalina' : 'granta')
   car.draw  
 end

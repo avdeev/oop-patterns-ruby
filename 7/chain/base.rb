@@ -5,7 +5,11 @@ class Handler
   end
 
   def handle number
-    @next_handler.handle number if @next_handler
+    if @next_handler
+      @next_handler.handle number
+    else
+      p 'error'
+    end
   end
 end
 
@@ -44,5 +48,5 @@ objects = 1..10
 chain = Handler_4.new Handler_3.new Handler_2.new
 
 objects.each do |object|
-  chain.handle object  
+  chain.handle object
 end
